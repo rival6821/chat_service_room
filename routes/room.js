@@ -9,6 +9,7 @@ router.get("/", function (req, res, next) {
 
 router.get("/:id", function (req, res, next) {
   var room = req.params.id;
+
   res.render("room", { room: room });
 });
 
