@@ -3,4 +3,13 @@ extends layout
 block content
   div 방제 : #{room}
 
+  div#textBox
+    ul#boxList
+  input#textInput(
+    onkeypress = 'if(event.keyCode==13){chatMessage(); return false;}'
+  )
+  button#inputButton(
+    onclick = 'chatMessage()'
+  ) 작성
+
   script(src='/javascripts/room.js')

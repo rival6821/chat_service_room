@@ -11,8 +11,8 @@ function socket(server) {
       });
     });
 
-    socket.on("chat message", function (msg) {
-      io.emit("chat message", msg);
+    socket.on("chat message", function (roomName, msg) {
+      io.to(roomName).emit("chat message", msg);
     });
 
     // 연결종료

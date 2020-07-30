@@ -1,8 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+#textBox {
+  width: 500px;
+  height: 600px;
+  border: 1px solid #333;
+  overflow-y: auto;
+}
+
+#textBox li {
+  text-decoration: none;
+  padding: 5px;
+}
+
+#textBox li:nth-child(2n) {
+  background-color: #ddd;
 }
