@@ -38,7 +38,12 @@ socket.on("disconnect", function () {
 socket.on("chat message", function (data) {
   console.log(data);
   var li = document.createElement("LI");
-  li.textContent = data;
+  var msg = data.msg;
+  if (id === data.userId) {
+    msg = "나 : " + msg;
+    li.classList.add("me");
+  }
+  li.textContent = msg;
   document.getElementById("boxList").appendChild(li);
 });
 

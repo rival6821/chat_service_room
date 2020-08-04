@@ -2,9 +2,12 @@ function socket(server) {
   var io = require("socket.io")(server);
 
   io.on("connection", function (socket) {
+    var userId = null;
+
     console.log("a user connected");
 
     socket.on("room enter", function (roomName, id) {
+      userId = id;
       socket.join(roomName, function () {
         console.log(`a new user connected ${roomName}`);
         io.to(roomName).emit("room enter");
@@ -12,7 +15,7 @@ function socket(server) {
     });
 
     socket.on("chat message", function (roomName, msg) {
-      io.to(roomName).emit("chat message", msg);
+      io.to(roomName).emit("chat message", { msg: msg, userId: userId });
     });
 
     // 연결종료

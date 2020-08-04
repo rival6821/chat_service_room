@@ -24,6 +24,6 @@ a {
   padding: 5px;
 }
 
-#textBox li:nth-child(2n) {
+#textBox li.me {
   background-color: #ddd;
 }
